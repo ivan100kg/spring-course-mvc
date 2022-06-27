@@ -3,14 +3,35 @@ package io.github.ivan100kg;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.rmi.MarshalledObject;
+import java.util.HashMap;
+import java.util.Map;
+
 //@Component
 public class Employee {
     private String name;
     private String surname;
     private int salary;
     private String department;
+    private Map<String, String> departments;
+
+    {
+        departments = new HashMap<>();
+        departments.put("IT", "Information Technology");
+        departments.put("HR", "Human Resources");
+        departments.put("Sales", "Sales");
+        departments.put("Cleaning", "Cleaning");
+    }
 
     public Employee() {
+    }
+
+    public Map<String, String> getDepartments() {
+        return departments;
+    }
+
+    public void setDepartments(Map<String, String> departments) {
+        this.departments = departments;
     }
 
     public String getName() {
