@@ -3,6 +3,10 @@
 <body>
     <h2>Dear Employee, you are WELCOME!!!</h2>
 <%--    <p>Your name: ${param.employeeName}</p>--%>
-    <p>Your name: ${nameAttr}</p>
+    <p>
+        Your name: ${employee.name}<br>
+        Your surname: ${employee.surname}<br>
+        Your salary: ${employee.salary}
+    </p>
 </body>
 </html>
