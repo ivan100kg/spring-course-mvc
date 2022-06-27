@@ -13,6 +13,14 @@
 <%--    <form:option value="Sales" label="Sales"/>--%>
     <form:options items="${employee.departments}"/>
     </form:select> <br>
+
+    Which car do you want? <br>
+<%--    BMW <form:radiobutton path="carBrand" value="BMW"/>--%>
+<%--    Audi <form:radiobutton path="carBrand" value="Audi"/>--%>
+<%--    Toyota <form:radiobutton path="carBrand" value="Toyota"/>--%>
+    <form:radiobuttons path="carBrand" items="${employee.carBrands}"/>
+    <br>
+
     <input type="submit" value="Ok">
 </form:form>
 </body>

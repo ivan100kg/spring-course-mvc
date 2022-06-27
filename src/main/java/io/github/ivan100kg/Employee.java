@@ -14,6 +14,8 @@ public class Employee {
     private int salary;
     private String department;
     private Map<String, String> departments;
+    private Map<String, String> carBrands;
+    private String CarBrand;
 
     {
         departments = new HashMap<>();
@@ -21,9 +23,31 @@ public class Employee {
         departments.put("HR", "Human Resources");
         departments.put("Sales", "Sales");
         departments.put("Cleaning", "Cleaning");
+
+        carBrands = new HashMap<>();
+        carBrands.put("BMW", "BMW");
+        carBrands.put("Audi", "Audi");
+        carBrands.put("Toyota", "Toyota");
+        carBrands.put("Ford", "Ford");
     }
 
     public Employee() {
+    }
+
+    public String getCarBrand() {
+        return CarBrand;
+    }
+
+    public Map<String, String> getCarBrands() {
+        return carBrands;
+    }
+
+    public void setCarBrands(Map<String, String> carBrands) {
+        this.carBrands = carBrands;
+    }
+
+    public void setCarBrand(String carBrand) {
+        CarBrand = carBrand;
     }
 
     public Map<String, String> getDepartments() {

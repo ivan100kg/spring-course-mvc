@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 public class MyController {
 
     @RequestMapping("/")
-    public String showFirstView(){
+    public String showFirstView() {
         return "first-view";
     }
 
@@ -39,6 +39,7 @@ public class MyController {
 
     @RequestMapping("/showDetails")
     public String showDetails(@ModelAttribute("employee") Employee emp) {
+        if (emp.getName().equals("Ivan")) emp.setSalary(emp.getSalary() * 2);
         return "show-emp-details-view";
     }
 }
