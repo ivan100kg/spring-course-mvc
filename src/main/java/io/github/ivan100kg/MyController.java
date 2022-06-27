@@ -3,6 +3,7 @@ package io.github.ivan100kg;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -18,7 +19,8 @@ public class MyController {
     }
 
     @RequestMapping("/askDetails")
-    public String askDetails() {
+    public String askDetails(Model model) {
+        model.addAttribute("employee", new Employee());
         return "ask-emp-details-view";
     }
 
@@ -36,9 +38,7 @@ public class MyController {
 //    }
 
     @RequestMapping("/showDetails")
-    public String showDetails(@RequestParam("employeeName") String empName, Model model) {
-        empName = "Mister " + empName;
-        model.addAttribute("nameAttr", empName);
+    public String showDetails(@ModelAttribute("employee") Employee emp) {
         return "show-emp-details-view";
     }
 }
