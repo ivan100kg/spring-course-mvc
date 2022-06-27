@@ -21,6 +21,9 @@
     <form:radiobuttons path="carBrand" items="${employee.carBrands}"/>
     <br>
 
+    Foreign languages: <br>
+    <form:checkboxes path="languages" items="${employee.myLanguages}"/>
+
     <input type="submit" value="Ok">
 </form:form>
 </body>
