@@ -1,16 +1,19 @@
 package io.github.ivan100kg;
 
+//import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/employee")
+//@RequestMapping("/employee")
 public class MyController {
 
     @RequestMapping("/")
@@ -38,8 +41,11 @@ public class MyController {
 //    }
 
     @RequestMapping("/showDetails")
-    public String showDetails(@ModelAttribute("employee") Employee emp) {
-        if (emp.getName().equals("Ivan")) emp.setSalary(emp.getSalary() * 2);
-        return "show-emp-details-view";
+    public String showDetails(@Valid @ModelAttribute("employee") Employee emp,
+                              BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "ask-emp-details-view";
+        else
+            return "show-emp-details-view";
     }
 }
