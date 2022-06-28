@@ -2,10 +2,9 @@ package io.github.ivan100kg;
 
 //import jakarta.validation.constraints.Size;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import io.github.ivan100kg.validation.CheckEmail;
+
+import javax.validation.constraints.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,6 +14,8 @@ public class Employee {
     private String name;
     @NotBlank(message = "surname is required field")
     private String surname;
+    @Min(value = 200, message = "must be greater than 199")
+    @Max(value = 900, message = "must be less than 901")
     private int salary;
     private String department;
     private Map<String, String> departments;
@@ -22,6 +23,10 @@ public class Employee {
     private String CarBrand;
     private String[] languages;
     private Map<String, String> myLanguages;
+
+    @CheckEmail
+    private String email;
+
 
     {
         departments = new HashMap<>();
@@ -43,6 +48,14 @@ public class Employee {
     }
 
     public Employee() {
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Map<String, String> getMyLanguages() {

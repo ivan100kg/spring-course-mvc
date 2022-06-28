@@ -8,7 +8,8 @@
     <form:errors path="name"/> <br>
     surname <form:input path="surname"/>
     <form:errors path="surname"/> <br>
-    salary <form:input path="salary"/> <br>
+    salary <form:input path="salary"/>
+    <form:errors path="salary"/><br>
     department <form:select path="department">
 <%--    <form:option value="Information Technology" label="IT"/>--%>
 <%--    <form:option value="Human Resources" label="HR"/>--%>
@@ -24,7 +25,11 @@
     <br>
 
     Foreign languages: <br>
-    <form:checkboxes path="languages" items="${employee.myLanguages}"/>
+    <form:checkboxes path="languages" items="${employee.myLanguages}"/> <br>
+
+    Email <form:input path="email" />
+    <form:errors path="email"/> <br>
+
 
     <input type="submit" value="Ok">
 </form:form>
