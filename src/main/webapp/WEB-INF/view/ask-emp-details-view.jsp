@@ -4,8 +4,10 @@
 <body>
 <h2>Dear Employee, Please enter your details</h2>
 <form:form action="showDetails" modelAttribute="employee">
-    name <form:input path="name"/> <br>
-    surname <form:input path="surname"/> <br>
+    name <form:input path="name"/>
+    <form:errors path="name"/> <br>
+    surname <form:input path="surname"/>
+    <form:errors path="surname"/> <br>
     salary <form:input path="salary"/> <br>
     department <form:select path="department">
 <%--    <form:option value="Information Technology" label="IT"/>--%>
